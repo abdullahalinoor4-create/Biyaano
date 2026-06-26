@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --color-gold: #C58E5C;
+  --color-dark-bg: #030303;
+  --color-card-bg: #141414;
+}
+
+/* Custom scrollbar and luxury styling */
+html {
+  scroll-behavior: smooth;
+  background-color: #030303;
+  color: #FFFFFF;
+}
+
+.bg-custom-gradient {
+  background-color: #030303;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8864E;
+}
+
+/* Custom styles for IntersectionObserver fade-in */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Luxury card hover subtle borders */
+.service-card {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border-left: 0px solid transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-left: 3px solid #B8864E;
+}
+
+/* Immersive UI architectural layout helper classes */
+.draft-grid {
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M0%2040%20L40%200%20M0%200%20L40%2040%22%20fill%3D%22none%22%20stroke%3D%22%23B8864E%22%20stroke-width%3D%220.5%22%20opacity%3D%220.15%22/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+.grid-divider {
+  background-color: rgba(184, 134, 78, 0.15);
+}
+
+
+
+/* ── Soft section-to-section transitions ── */
+
+/* Dark section: fades into the light section below/above */
+.section-fade-dark {
+  position: relative;
+}
+.section-fade-dark::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, #030303, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+.section-fade-dark::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to top, #030303, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Light section: fades into the dark section below/above */
+.section-fade-light {
+  position: relative;
+}
+.section-fade-light::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, #F5EDE0, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+.section-fade-light::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to top, #F5EDE0, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
